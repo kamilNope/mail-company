@@ -1,0 +1,8 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: 'mail-office-service'
+eureka:
+  client:
+    eureka-server-port: 8761
