@@ -21,7 +21,7 @@ public class MailDiscoveryServiceApplication {
     }
 
     @RestController
-    class ServiceInstanceController{
+    class ServiceInstanceController {
 
         @Autowired
         private EurekaClient eurekaClient;
@@ -32,7 +32,5 @@ public class MailDiscoveryServiceApplication {
         }
 
     }
-
-
 
 }
