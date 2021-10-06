@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 
 @EnableEurekaClient
@@ -33,7 +34,8 @@ public class MailOfficeServiceApplication {
 
         @RequestMapping("/address/{instanceID}")
         public String getInstance(@PathVariable String instanceID) {
-            return "Hello world! " + eurekaClient.getInstancesById(instanceID);
+            InstanceInfo instance = eurekaClient.getNextServerFromEureka(instanceID, false);
+            return instance.getHomePageUrl();
         }
 
 
